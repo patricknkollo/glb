@@ -31,14 +31,18 @@ public class VilleController {
         return  service.findAllVille();
     }
 
-    @RequestMapping(path = "/update", method = RequestMethod.PUT)
-    public @ResponseBody ResponseEntity<Ville> updateTown(@RequestBody Ville ville,@PathVariable Long id){
+    @RequestMapping(path = "/update/{thisid}", method = RequestMethod.PUT)
+    public @ResponseBody ResponseEntity<Ville> updateTown(@RequestBody Ville ville,@PathVariable("thisid") Long id){
         return service.updateVille(ville, id);
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public void removeTownWithID(@RequestParam Long id){
+    public void removeTownWithID(@RequestParam("id") Long id){
         service.removeVilleWithID(id);
+    }
 
+    @RequestMapping(path = "/delete2", method = RequestMethod.DELETE)
+    public void removeTownWithID2(@RequestParam("id") Long id){
+        service.removeVilleWithID2(id);
     }
 }

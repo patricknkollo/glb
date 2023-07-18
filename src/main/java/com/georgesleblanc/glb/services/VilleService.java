@@ -59,7 +59,13 @@ public class VilleService {
                     optionalville.get().getName());
             repository.deleteById(id);
         }
-        logger.info("the 'Ville' with the id {} doesn't exist in the database");
+        else {
+            logger.info("the 'Ville' with the id {} doesn't exist in the database");
+        }
 
+    }
+
+    public void removeVilleWithID2(Long id){
+            repository.deleteById(id);
     }
 }
